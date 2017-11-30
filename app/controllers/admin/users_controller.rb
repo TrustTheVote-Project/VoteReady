@@ -17,5 +17,12 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+    
+    def simulate_voter_record_change
+      @user = find_resource(params[:id])
+      @user.simulate_voter_record_change
+      redirect_to action: :show
+    end
+    
   end
 end

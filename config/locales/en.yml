@@ -30,4 +30,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  signin: 
+    header: Sign In to VoteReady 
+    subheader: Update your profile or check your status
+    signup: Don't have an account?
+  signup:
+    header: Sign up for VoteReady
+    subheader: We'll monitor your voter record and immediately make you aware if there are any changes.
+    form:
+      personal_info_header: Your information
+      address_header: Your address
+      notification_header: How would you like to be alerted to changes?
+      notifications:
+        email: Email
+        sms: SMS
+        none: Don't alert me
+      submit: Monitor my record!
+    skip: Already registered?
+  confirmation:
+    header: You're good to go!
+    subheader: Thank you for signing up for the VoteReady voter registration record monitoring service. Your state’s records confirm that %{first_name} %{last_name} is registered to vote at %{address}. VoteReady helps you be confident that your voter registration record is always up-to-date.
+    share: Share VoteReady!
+    profile: View your profile.
