@@ -1,0 +1,15 @@
+- disabled = disabled || false
+= form_for @user do |f|
+  %fieldset.form-group
+    %legend= t 'signup.form.personal_info_header'
+    .row 
+      .col-sm-6
+        = f.label :fist_name
+        = f.input :first_name
+      .col-sm-6
+        = f.label :last_name
+        = f.input :last_name
+    .row
+      .col-sm-12
+        = f.label :address
+        = f.fie

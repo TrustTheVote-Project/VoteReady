@@ -10,15 +10,25 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
   devise_for :users, controllers: {
-    registrations: 'user/registrations'
+    registrations: 'user/registrations',
+    confirmations: 'user/confirmations',
+    passwords: 'user/passwords',
+    unlocks: 'user/unlocks'
   }
   
-  resources :users, only: [:show] do
+  devise_scope :user do
+    get '/', to: 'user/registrations#new', as: :register
+  end
+  
+  resources :users, only: [:show, :edit, :update] do
     member do
       get :welcome
+      get :history
     end
   end
   
-  root to: 'user/registrations#new'
+  resources :voter_record_updates, only: :show
+  
+  root "user/registrations#new"
   
 end

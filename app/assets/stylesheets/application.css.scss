@@ -15,6 +15,8 @@
 
 @import "bootstrap";
 
+@import "fonts";
+
 @import 'variables';
 @import 'mixins';
 
@@ -36,13 +38,23 @@ h1, h2, h3, h4, h5, h6 {
   color: $header-text-color;
 }
 
+body {
+  &:before {
+    content: "";
+    display: block;
+    height:0;
+    width: 100%;
+    border-top: $thick-line-height solid $border-color;
+  }  
+}
 
 h1 {
   margin: 1em auto .5em;
-  width: auto;
+  width: 80%;
+  max-width: 600px;
   text-align: center;
-  padding: 1em 0 0;
-  border-top: $thick-line-height solid $border-color;
+  padding: 0;
+  
 }
 
 p {
@@ -73,6 +85,34 @@ a, a:visited, a:hover {
   margin-top: .5em;
 }
 
+@import 'nav';
 @import 'forms';
+
+.voter-record-group {
+  padding: 2rem 0;  
+}
+
+h3.field-header {
+  @include field-header;
+}
+
+.voter-record-value {
+  @include voter-record-value
+}
+
+.voter-record-list-value {
+  .voter-record-list-value-item {
+    border-bottom: 1px solid $border-color-light;
+    padding: 1em 0;
+    &:last {
+      border: none;
+    }
+    margin-bottom: 1em;
+  }
+}
+
+.voter-record-label {
+  @include voter-record-label
+}
 
 

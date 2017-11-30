@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      short: '%B %d, %Y'
+      
   signin: 
     header: Sign In to VoteReady 
     subheader: Update your profile or check your status
@@ -52,3 +56,31 @@ en:
     subheader: Thank you for signing up for the VoteReady voter registration record monitoring service. Your state’s records confirm that %{first_name} %{last_name} is registered to vote at %{address}. VoteReady helps you be confident that your voter registration record is always up-to-date.
     share: Share VoteReady!
     profile: View your profile.
+  user:
+    voter_record:
+      header: "%{name}, here's your current %{state} record"
+      status_header: ''
+      status_label: Status
+      personal_info:
+        header: Personal onformation
+        first_name: First name
+        last_name: Last name
+        address: Registration address
+        mailing_address: Mailing address
+    edit_voter_record:
+      header: "%{name}, update your current %{state} record"
+    voter_history:
+      header: "%{name}, here's your %{state} voter record history"
+      changes_header: Changes to your voter record
+  update:
+    header: "%{name}, we noticed some changes to your %{state} voter record"
+    changed: 
+      header: What was changed
+      from: From
+      to: To
+    instructions:
+      if_yes_header: If this was you
+      if_yes: "Great! There's nothing else you need to do."
+      if_no_header: "If this wasn't you"
+      if_no: "Please review your voter registration record to verify that it is up-to-date and you remain eligible to vote."
+      see_record: See record

@@ -4,20 +4,7 @@ class VoterRecord < ApplicationRecord
   
   after_create :detect_change
   
-  CHANGEABLE_ATTRIBUTES = %w(
-    first_name 
-    middle_name
-    last_name
-    address_1
-    address_2
-    city
-    zip
-    state
-    date_of_birth    
-  ) #TODO: There are more here
-    
-  
-  
+
   
   def self.create_random!(user)
     self.create!({
@@ -29,6 +16,8 @@ class VoterRecord < ApplicationRecord
       zip: user.zip,
       state: user.state,
       date_of_birth: user.date_of_birth,
+      email: user.email,
+      phone: user.phone,
       user: user
     })
   end
@@ -39,15 +28,7 @@ class VoterRecord < ApplicationRecord
       pv = self.user.latest_voter_record
     end
     if pv && pv != self
-      changed_data = []
-      CHANGEABLE_ATTRIBUTES.each do |a|
-        if pv.send(a).to_s != self.send(a).to_s
-          changed_data << [a, pv.send(a).to_s, self.send(a.to_s)]
-        end
-      end
-      if changed_data.any?
-        user.notify_registration_update(changed_data)
-      end
+      VoterRecordUpdate.record!(user, pv, self)
     end
   end
   

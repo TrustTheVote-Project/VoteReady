@@ -1,0 +1,16 @@
+- content_for :page_header do
+  %h1= t('user.voter_history.header', name: @user.first_name, state: @user.state)
+  
+.row
+  .col-sm-4
+    %h3.field-header= t('user.voter_history.changes_header')
+  .col-sm-8
+    .container.voter-record-list-value
+      - @updates.each do |vr_update|
+        .row.voter-record-list-value-item
+          .col-sm-6
+            = link_to l(vr_update.created_at, format: :short), voter_record_update_path(vr_update)
+          .col-sm-6
+            = vr_update.messages.join("<br/>").html_safe
+            
+      

@@ -9,9 +9,28 @@ class VoterRecordDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    user: Field::String,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    
+    previous_voter_record: Field::BelongsTo.with_options(class_name: "VoterRecord"),
+    
+    first_name: Field::String,
+    middle_name: Field::String,
+    last_name: Field::String,
+    address_1: Field::String,
+    address_2: Field::String,
+    city: Field::String,
+    state: Field::String,
+    zip: Field::String,
+    
+    mailing_address_1: Field::String,
+    mailing_address_2: Field::String,
+    mailing_city: Field::String,
+    mailing_state: Field::String,
+    mailing_zip: Field::String,
+    
+    
     
   }.freeze
 
@@ -23,6 +42,7 @@ class VoterRecordDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
+    :previous_voter_record,
     :created_at
   ].freeze
 
@@ -31,7 +51,21 @@ class VoterRecordDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :user,
-    :created_at
+    :previous_voter_record,
+    :first_name,
+    :middle_name,
+    :last_name,
+    :address_1,
+    :address_2,
+    :city,
+    :state,
+    :zip,
+    :mailing_address_1,
+    :mailing_address_2,
+    :mailing_city,
+    :mailing_state,
+    :mailing_zip,
+    :created_at,
   ].freeze
 
   # FORM_ATTRIBUTES

@@ -65,6 +65,11 @@ ActiveRecord::Schema.define(version: 20171126185447) do
     t.string "mailing_city"
     t.string "mailing_state"
     t.string "mailing_zip"
+    t.string "phone"
+    t.string "email"
+    t.string "status"
+    t.string "language"
+    t.boolean "vote_by_mail"
     t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

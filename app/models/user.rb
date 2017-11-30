@@ -21,6 +21,8 @@ class User < ApplicationRecord
   
   
   def get_current_voter_record
+    # When hooked up to state systems, this will pull an initial record from those systems
+    # VoterRecord.create_initial_from_state!(self)
     VoterRecord.create_random!(self)
   end
   
@@ -42,9 +44,8 @@ class User < ApplicationRecord
     new_vr.save!
   end
   
-  def notify_registration_update(changed_data)
-    voter_record_updates.create(update_type: VoterRecordUpdate::REGISTRATION_UPDATE, changed_data: changed_data)
-    
+  def notify(vr_update)
   end
+  
   
 end

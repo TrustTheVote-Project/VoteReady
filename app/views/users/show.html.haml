@@ -1,0 +1,55 @@
+- content_for :page_header do
+  %h1= t('user.voter_record.header', name: @user.first_name, state: @user.state)
+  
+  
+.voter-record-group
+  .row
+    .col-sm-6
+      .voter-record-label= t 'user.voter_record.status'
+      .voter-record-value Active
+
+.voter-record-group
+  %h3.field-header= t 'user.voter_record.personal_info.header'
+  .row 
+    .col-sm-6
+      .voter-record-label= t('user.voter_record.personal_info.first_name')
+      .voter-record-value= @vr.first_name
+
+    .col-sm-6
+      .voter-record-label= t('user.voter_record.personal_info.last_name')
+      .voter-record-value= @vr.last_name
+  .row
+    .col-sm-12
+      .voter-record-label= t('user.voter_record.personal_info.address')
+      .voter-record-value
+        = @vr.address_1
+        - if !@vr.address_2.blank?
+          %br
+          = @vr.address_2
+        %br
+        = "#{@vr.city}, #{@vr.state}, #{@vr.zip}"
+
+  .row
+    .col-sm-12
+      .voter-record-label= t('user.voter_record.personal_info.mailing_address')
+      .voter-record-value
+        - if !@vr.mailing_address_1.blank?
+          = @vr.mailing_address_1
+          - if !@vr.mailing_address_2.blank?
+            %br
+            = @vr.mailing_address_2
+          %br
+          = "#{@vr.mailing_city}, #{@vr.mailing_state}, #{@vr.mailing_zip}"
+  .row
+    .col-sm-6
+      .voter-record-label= t('user.voter_record.personal_info.phone')
+      .voter-record-value= @vr.phone
+
+    .col-sm-6
+      .voter-record-label= t('user.voter_record.personal_info.email')
+      .voter-record-value= @vr.email
+      
+
+.center
+  = link_to "Make changes", edit_user_path(@user), class: 'button'
+    

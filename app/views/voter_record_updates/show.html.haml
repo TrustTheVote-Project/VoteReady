@@ -1,0 +1,30 @@
+- content_for :page_header do
+  %h1= t('update.header', name: @user.first_name, state: @user.state)
+
+.voter-record-group
+  %h2
+    On
+    = l(@update.created_at, format: :short)
+    
+  %h3.field-header= t('update.changed.header')
+  - @update.changed_data.each do |attr_key, from_val, to_val|
+    .row
+      .col-sm-2
+        .voter-record-label &nbsp;
+        = VoterRecord.human_attribute_name(attr_key)
+        
+      .col-sm-5
+        .voter-record-label= t('update.changed.from')
+        .voter-record-value= from_val 
+      .col-sm-5
+        .voter-record-label= t('update.changed.to')
+        .voter-record-value= to_val 
+        
+        
+%h3.field-header= t('update.instructions.if_yes_header')
+%p= t('update.instructions.if_yes')
+%h3.field-header= t('update.instructions.if_no_header')
+%p= t('update.instructions.if_no')
+
+.center
+  = link_to t('update.instructions.see_record'), user_path(@user), class: 'button'

@@ -23,7 +23,7 @@
           = f.email_field :email
         .col-sm-4
           = f.label :phone
-          = f.email_field :phone
+          = f.phone_field :phone
     %fieldset.form-group
       %legend= t 'signup.form.address_header'
       .row
@@ -49,13 +49,13 @@
         .col-sm-12
           = f.label :notification_type_email, class: 'radio' do
             = f.radio_button :notification_type, :email
-            = t('signup.form.notifications.email')            
+            %span.radio-text= t('signup.form.notifications.email')            
           = f.label :notification_type_sms, class: 'radio' do
             = f.radio_button :notification_type, :sms
-            = t('signup.form.notifications.sms')
+            %span.radio-text= t('signup.form.notifications.sms')
           = f.label :notification_type_none, class: 'radio' do
             = f.radio_button :notification_type, :none 
-            = t('signup.form.notifications.none')
+            %span.radio-text= t('signup.form.notifications.none')
     
     .center
       = f.submit t('signup.form.submit')

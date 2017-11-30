@@ -9,8 +9,8 @@ class VoterRecordUpdateDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    user: Field::String,
-    message: Field::String,
+    user: Field::BelongsTo,
+    messages: ListField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     
@@ -24,6 +24,7 @@ class VoterRecordUpdateDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
+    :messages,
     :created_at    
   ].freeze
 
@@ -32,6 +33,7 @@ class VoterRecordUpdateDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :user,
+    :messages,
     :created_at
     
   ].freeze

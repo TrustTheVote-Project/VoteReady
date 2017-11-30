@@ -1,16 +1,19 @@
 $black: #000;
-$dark-gray: rgb(120, 120, 120);
+$dark-gray: #323232;
 $light-gray: rgb(241,241,241);
 $white: #FFF;
-$blue: rgb(83,154,220);
+$blue: #4f99df;
+$blue: rgb(14, 110, 178);
+$red: rgb(212, 62, 37);
 
-$header-font-family: serif;
-$font-family: sans-serif;
+$header-font-family: "Kievit Slab", serif;
+$font-family: "Kievit", sans-serif;
 
 
 $background-color: $light-gray;
 $text-color: $dark-gray;
 $header-text-color: $black;
 $border-color: $dark-gray;
+$border-color-light: $light-gray;
 
 $thick-line-height: 8px;

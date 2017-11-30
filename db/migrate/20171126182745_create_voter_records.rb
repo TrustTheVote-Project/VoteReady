@@ -20,6 +20,13 @@ class CreateVoterRecords < ActiveRecord::Migration[5.1]
       t.string :mailing_city
       t.string :mailing_state
       t.string :mailing_zip
+      
+      t.string :phone
+      t.string :email
+      t.string :status
+      t.string :language
+      t.boolean :vote_by_mail
+      
 
       t.date :date_of_birth
       
