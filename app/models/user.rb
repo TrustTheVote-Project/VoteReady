@@ -45,9 +45,11 @@ class User < ApplicationRecord
   end
   
   def notify(vr_update)
+    notification_url = Rails.application.routes.url_helpers.voter_record_update_url(vr_update)
+    raise notification_url.to_s
     twilio_sid = ENV['TWILIO_SID']
     twilio_token = ENV["TWILIO_TOKEN"]
-    twilio_phone_number = "4439125148 "
+    twilio_phone_number = ENV['TWILIO_NUMBER']
 
     number_to_send_to = self.phone
 
@@ -55,8 +57,8 @@ class User < ApplicationRecord
 
     @twilio_client.api.account.messages.create(
         :from => "+1#{twilio_phone_number}",
-        :to => "6174169727",
-        :body => "This is an message. It gets sent to #{number_to_send_to}"
+        :to => number_to_send_to,
+        :body => "We detected a change to your voter record. For more details visit #{notification_url}"
     )
     
     

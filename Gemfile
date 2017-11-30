@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
 end
 ruby '2.4.2'
 gem 'rails', '~> 5.1.4'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'twilio-ruby'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'

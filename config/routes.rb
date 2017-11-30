@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  default_url_options :host => Rails.application.secrets.domain_name
+
+
   namespace :admin do
     resources :users do
       member do
