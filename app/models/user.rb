@@ -46,7 +46,7 @@ class User < ApplicationRecord
   
   def notify(vr_update)
     notification_url = Rails.application.routes.url_helpers.voter_record_update_url(vr_update)
-    raise notification_url.to_s
+    
     twilio_sid = ENV['TWILIO_SID']
     twilio_token = ENV["TWILIO_TOKEN"]
     twilio_phone_number = ENV['TWILIO_NUMBER']
