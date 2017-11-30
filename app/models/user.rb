@@ -45,6 +45,21 @@ class User < ApplicationRecord
   end
   
   def notify(vr_update)
+    twilio_sid = ENV['TWILIO_SID']
+    twilio_token = ENV["TWILIO_TOKEN"]
+    twilio_phone_number = "4439125148 "
+
+    number_to_send_to = self.phone
+
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+
+    @twilio_client.api.account.messages.create(
+        :from => "+1#{twilio_phone_number}",
+        :to => "6174169727",
+        :body => "This is an message. It gets sent to #{number_to_send_to}"
+    )
+    
+    
   end
   
   
