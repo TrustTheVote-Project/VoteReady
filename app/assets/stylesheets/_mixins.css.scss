@@ -1,0 +1,12 @@
+@mixin button {
+  background: $blue;
+  color: $white;
+  width: auto;
+  @include border-radius(5px);
+  padding: 1rem $grid-gutter-width;
+  line-height: 1em;
+  display: inline-block;
+  margin: 0px auto;
+  border: none;  
+  text-align: center;
+}

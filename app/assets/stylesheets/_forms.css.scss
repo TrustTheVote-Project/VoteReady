@@ -1,0 +1,29 @@
+form {
+  fieldset {
+    legend {
+      border-top: 1px solid $border-color;
+      padding-top: 1rem;
+      font-family: $header-font-family;
+      font-weight: bold;
+      color: $header-text-color;  
+    }
+  }
+  label {
+    display: block;
+    color: $text-color;
+    margin-top: 1em;
+    &.radio {
+      display: inline-block;
+      padding-right: $grid-gutter-width;
+    }
+  }
+  input[type=text], input[type=email], input[type=phone], input[type=date], input[type=password], select {
+    display: block;
+    border: none;
+    background: $background-color;
+    width: 100%;    
+  }
+  input[type=submit] {
+    @include button
+  }
+}

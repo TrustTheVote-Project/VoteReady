@@ -1,0 +1,8 @@
+.container
+  %h1= t 'confirmation.header'
+  %p.intro= t 'confirmation.subheader', first_name: @user.first_name, last_name: @user.last_name, address: one_line_address(@user)
+
+  .center
+    = link_to t('confirmation.share'), '#', class: 'button'
+  .center.after-button
+    = link_to t('confirmation.profile'), user_path(@user)

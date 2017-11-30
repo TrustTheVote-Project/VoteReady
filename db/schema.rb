@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171126185447) do
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "changed_data"
-    t.string "notification_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -46,6 +38,14 @@ ActiveRecord::Schema.define(version: 20171126185447) do
     t.date "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "voter_record_updates", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "changed_data"
+    t.string "update_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "voter_records", force: :cascade do |t|

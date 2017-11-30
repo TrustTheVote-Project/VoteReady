@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name, :date_of_birth
 
   has_many :voter_records #, order: "created at DESC"
-  has_many :notifications
+  has_many :voter_record_updates
 
   after_create :get_current_voter_record
   
@@ -43,7 +43,7 @@ class User < ApplicationRecord
   end
   
   def notify_registration_update(changed_data)
-    notifications.create(notification_type: Notification::REGISTRATION_UPDATE, changed_data: changed_data)
+    voter_record_updates.create(update_type: VoterRecordUpdate::REGISTRATION_UPDATE, changed_data: changed_data)
     
   end
   

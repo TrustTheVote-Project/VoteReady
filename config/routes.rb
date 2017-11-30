@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       end
     end
     resources :voter_records    
-    resources :notifications    
+    resources :voter_record_updates    
     root to: "users#index"
   end
   devise_for :users, controllers: {

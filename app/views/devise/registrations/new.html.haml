@@ -1,0 +1,63 @@
+.container
+  %h1= t 'signup.header'
+  %p.intro= t 'signup.subheader'
+
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
+  
+    = devise_error_messages!
+    %fieldset.form-group
+      %legend= t 'signup.form.personal_info_header'
+      .row
+        .col-sm-6
+          = f.label :first_name
+          = f.text_field :first_name, :autofocus => true
+        .col-sm-6
+          = f.label :last_name
+          = f.text_field :last_name
+      .row
+        .col-sm-4
+          = f.label :date_of_birth
+          = f.date_field :date_of_birth
+        .col-sm-4
+          = f.label :email
+          = f.email_field :email
+        .col-sm-4
+          = f.label :phone
+          = f.email_field :phone
+    %fieldset.form-group
+      %legend= t 'signup.form.address_header'
+      .row
+        .col-sm-6
+          = f.label :address_1
+          = f.text_field :address_1
+        .col-sm-6
+          = f.label :address_2
+          = f.text_field :address_2        
+      .row
+        .col-sm-4
+          = f.label :city
+          = f.text_field :city
+        .col-sm-4
+          = f.label :zip
+          = f.text_field :zip
+        .col-sm-4
+          = f.label :state
+          = f.text_field :state
+    %fieldset.form-group
+      %legend= t 'signup.form.notification_header'
+      .row
+        .col-sm-12
+          = f.label :notification_type_email, class: 'radio' do
+            = f.radio_button :notification_type, :email
+            = t('signup.form.notifications.email')            
+          = f.label :notification_type_sms, class: 'radio' do
+            = f.radio_button :notification_type, :sms
+            = t('signup.form.notifications.sms')
+          = f.label :notification_type_none, class: 'radio' do
+            = f.radio_button :notification_type, :none 
+            = t('signup.form.notifications.none')
+    
+    .center
+      = f.submit t('signup.form.submit')
+    .center.after-button
+      = link_to t('signup.skip'), new_user_session_path
