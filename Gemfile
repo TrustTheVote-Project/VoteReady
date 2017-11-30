@@ -38,8 +38,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'sqlite3'
 end
+gem 'sqlite3'
 group :production do
   gem 'pg'
 end
