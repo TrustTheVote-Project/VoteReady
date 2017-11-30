@@ -32,7 +32,10 @@ form {
     outline: none;
   }
   input[type=text], input[type=email], input[type=phone], input[type=date], input[type=password], input[type=tel], select {
-    @include voter-record-value
+    @include voter-record-value;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   input[type=submit] {
     @include button
