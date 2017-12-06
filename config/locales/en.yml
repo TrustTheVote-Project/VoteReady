@@ -40,7 +40,7 @@ en:
     signup: Don't have an account?
   signup:
     header: Sign up for VoteReady
-    subheader: We'll monitor your voter record and immediately make you aware if there are any changes.
+    subheader: This free service monitors your voter record and immediately notifies you if there are any changes.
     form:
       personal_info_header: Your information
       address_header: Your address

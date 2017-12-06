@@ -15,3 +15,15 @@
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
+    %footer
+      .row
+        .col-sm-4.left
+          .footer-col-content
+            = link_to "https://www.trustthevote.org" do
+              = image_tag "ttv_logo.png", class: 'logo'
+        .col-sm-4.middle
+          .footer-col-content
+            Pilot Demo Pre-Alpha
+        .col-sm-4.right
+          .footer-col-content          
+            = link_to "OSET Public License", "https://www.osetfoundation.org/public-license"
