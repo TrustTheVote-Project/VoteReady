@@ -115,15 +115,18 @@ h3.field-header {
   @include voter-record-label
 }
 
+$logo-height: 90px;
+
 footer {
   margin-top: $grid-gutter-width;
+  padding-top: $grid-gutter-width;
   border-top: $thick-line-height solid $border-color;
   
   .row .col-sm-4 {
-    height:100px;    
+    height:$logo-height;    
   }
   img.logo {
-    height:100px;
+    height:$logo-height;
   }
   .middle {
     text-align: center;
@@ -139,5 +142,17 @@ footer {
       vertical-align: middle;
       display: table-cell;
     }
+  }
+}
+@include media-breakpoint-down(xs) {
+  footer {
+    .row, .row .col-sm-4 {
+      height: auto;
+      padding: 1rem;
+    }
+    .left, .middle, .right {
+      height: auto;
+      text-align: center;
+    }    
   }
 }
