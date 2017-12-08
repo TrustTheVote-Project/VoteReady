@@ -85,3 +85,9 @@ en:
       if_no_header: "If this wasn't you"
       if_no: "Please review your voter registration record to verify that it is up-to-date and you remain eligible to vote."
       see_record: See record
+  messages:
+    welcome:
+      sms: "You are registered for VoteReady monitoring, a TrustTheVote Project free service. You will receive a notice any time a change to your Voter Registraion is detected.  Text STOP to prevent further notices or visit: voteready.org"
+    update:
+      sms: "We detected a change to your voter record. For more details visit %{notification_url}"
+      
