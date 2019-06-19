@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   protected
   def redirect_to_ttv
-    redirect_to "https://trustthevote.org/voteready/"
+    redirect_to "https://trustthevote.org/voteready/" unless request.host.contains?("demo.voteready.org")
   end
   
   def after_sign_in_path_for(resource)
